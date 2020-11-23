@@ -1,0 +1,1503 @@
+/*The CSS code is property to Mr. You (Kristiyan Valchev) and can only be viewed*/
+/*If you want to use part of the code, please first contact me: krisvalchev@gmail.com*/
+
+html
+{
+    font-family: 'Mulish', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body
+{
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    background-color: #000000;
+    overflow-x: hidden;
+}
+
+/* Color Theme Swatches in Hex */
+.Colors
+{
+    color: #bfb6ae;
+    color: #bf8f73;
+    color: #bf7154;
+    color: #733729;
+}
+
+/*#region Scrow bar */
+::-webkit-scrollbar
+{
+	width: 10px;
+}
+
+::-webkit-scrollbar-track
+{
+    background-color: #222222;
+    border-radius: 70px;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background: #444444;
+	border-radius: 70px;
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+	background: #555555;
+}
+/*#endregion Scrow bar */
+
+/*#region Loader */
+.Loader
+{
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #0a0d12;
+	justify-content: center;
+	align-items: center;
+    overflow: hidden;
+    
+    z-index: 99;
+}
+
+.Loader.hidden
+{
+	animation: fadeOutt 1s;
+    animation-fill-mode: forwards;
+	overflow-y: visible;
+}
+
+.Loader h1
+{
+    color: #f2f2f2;
+    margin-top: 40px;
+}
+
+.configure-border-1
+{
+    width: 115px;
+    height: 115px;
+    padding: 3px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #733729;
+    margin-left: 15px;
+    animation: configure-clockwise 3s ease-in-out 0s infinite alternate;
+}
+
+.configure-border-2
+{
+    width: 115px;
+    height: 115px;
+    padding: 3px;
+    left: -115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #bf7154;
+    transform: rotate(45deg);
+    margin-left: 15px;
+    animation: configure-xclockwise 3s ease-in-out 0s infinite alternate;
+}
+
+.configure-core
+{
+    width: 100%;
+    height: 100%;
+    background-color: #0a0d12;
+}
+
+@keyframes configure-clockwise
+{
+    0% { transform: rotate(0); }
+    25% { transform: rotate(90deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(270deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes configure-xclockwise
+{
+    0% { transform: rotate(45deg); }
+    25% { transform: rotate(-45deg); }
+    50% { transform: rotate(-135deg); }
+    75% { transform: rotate(-225deg); }
+    100% { transform: rotate(-315deg); }
+}
+
+@keyframes fadeOutt
+{
+	100%
+	{
+        visibility: hidden;
+        opacity: 0;
+	}
+}
+/*#endregion Loader */
+
+/*#region Top bar */
+.topBar
+{
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+
+    z-index: 30;
+
+    animation: dropDown .5s ease-out forwards .5s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.topBar a
+{
+    position: relative;
+    top: calc(100% - 30px);
+    left: 30;
+    font-size: 26px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #f2f2f2c0;
+    margin-right: 36px;
+
+    animation: fadeIn .3s ease-out forwards .55s;
+    opacity: 0;
+}
+
+.topBar a::before
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -8px;
+    left: 0%;
+    background-color: #f2f2f2c0;
+    visibility: hidden;
+    transform: scaleX(0);
+    
+    transition: ease .3s;
+}
+
+.topBar a:hover::before
+{
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.topBar a.Right
+{
+    float: right;
+    left: auto;
+    right: 30;
+    margin-right: 0px;
+    margin-left: 36px;
+}
+
+.topBar a.Active::before
+{
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.topBar a.Active:hover
+{
+    color: #f2f2f2;
+}
+
+.topBar a.Logo
+{
+    width: 50px;
+    height: 60px;
+    padding-right: 60px;
+}
+
+.topBar a.Logo:hover::before
+{
+    visibility: hidden;
+    transform: scaleX(0);
+}
+
+.topBar a.Logo div
+{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    background-color: #f2f2f2;
+    border-radius: 999px;
+}
+
+.topBar a.threeLineButton
+{
+    display: none;
+    position: absolute;
+    width: 60px;
+    height: 32px;
+    padding: 0;
+}
+
+.topBar a.threeLineButton div
+{
+    float: right;
+    position: absolute;
+    height: 3px;
+    right: 0;
+    background-color: #f2f2f2;
+}
+
+.topBar a.threeLineButton div:nth-child(1)
+{
+    width: 100%;
+    top: 1;
+}
+
+.topBar a.threeLineButton div:nth-child(2)
+{
+    width: 50%;
+    top: calc(50% - .5px);
+}
+
+.topBar a.threeLineButton div:nth-child(3)
+{
+    width: 100%;
+    bottom: 0;
+}
+
+.topBar a.threeLineButton:hover div
+{
+    width: 100%;
+}
+
+.topBar a.threeLineButton:hover::before
+{
+    visibility: hidden;
+}
+/*#endregion Top bar */
+
+/*#region Side menu */
+.sideMenuCloseButton
+{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    z-index: 2;
+}
+
+.sideMenu
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #333333;
+
+    transform: translateX(100%);
+}
+
+.sideMenu a
+{
+    display: block;
+    position: relative;
+    width: 180px;
+    top: 80;
+    left: 15;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 40px;
+    color: #f2f2f2a0;
+}
+
+.sideMenu a::before
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 1px;
+    left: 0%;
+    background-color: #f2f2f2c0;
+    visibility: hidden;
+    transform: scaleX(0);
+    
+    transition: ease .3s;
+}
+
+.sideMenu a:hover::before
+{
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.sideMenu a.Active
+{
+    color: #f2f2f2;
+}
+/*#endregion Side menu */
+
+/*#region Main Things */
+.mainTexts
+{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 160;
+    left: 0;
+}
+
+.mainTexts .mainTitle
+{
+    position: absolute;
+    width: calc(100% - 60px);
+    top: 0;
+    left: 30;
+    font-size: 120px;
+    font-weight: bold;
+    line-height: 120px;
+    text-align: center;
+    color: #f2f2f2;
+}
+
+.mainTexts .subTitle
+{
+    position: absolute;
+    width: calc(100% - 60px);
+    top: 20;
+    left: 30;
+    font-family: Catamaran, sans-serif;
+    font-size: 400px;
+    font-weight: bolder;
+    line-height: 400px;
+    text-align: center;
+    color: #f2f2f2;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 2px #f2f2f2a0;
+}
+
+.mainTexts .mainNumber
+{
+    position: absolute;
+    width: calc(100% - 60px);
+    top: 330;
+    left: 30;
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 60px;
+    text-align: center;
+    color: #f2f2f2;
+}
+
+.mainArrow
+{
+    position: absolute;
+    bottom: 25;
+    left: calc(50% - 20px);
+    font-size: 40px;
+    line-height: 40px;
+    color: #f2f2f2;
+}
+
+.mainArrow:hover
+{
+    color: #bf8f73;
+}
+/*#endregion Main Things */
+
+/*#region Page content */
+.pageContent
+{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 100%;
+    left: 0;
+    background-color: #222222;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.pageContent .pageContentSection
+{
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    margin-bottom: 100px;
+
+    animation: dropDown .5s ease-out forwards 1s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .pageContentSection .pageContentSectionTitle
+{
+    position: relative;
+    width: calc(100% - 60px);
+    top: 0;
+    left: 30;
+    font-size: 38px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 38px;
+    color: #f2f2f2;
+    padding-top: 100px;
+    margin-bottom: 60px;
+
+    animation: dropDown .5s ease-out forwards 1.1s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .pageContentSection .pageContentImageBox
+{
+    display: grid;
+    position: relative;
+    width: calc(100% - 240px);
+    height: auto;
+    top: 0;
+    left: 120;
+    grid-template-columns: auto auto auto;
+    justify-items: center;
+    margin-bottom: 60px;
+}
+
+.pageContent .pageContentSection .pageContentImageBox .pageContentImageBoxItem
+{
+    position: relative;
+    max-width: calc(100% - 30px);
+    max-height: 300px;
+    top: 0;
+}
+
+.pageContent .pageContentSection .pageContentSectionText
+{
+    position: relative;
+    width: 600px;
+    top: 0;
+    left: calc(50% - 300px);
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 28px;
+    color: #f2f2f2a0;
+
+    animation: dropDown .5s ease-out forwards 1.2s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .pageContentSection .pageContentSectionText linkText
+{
+    color: #a089cd;  /* Change */
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.pageContent .pageContentSection .pageContentSectionText linkText:hover
+{
+    color: #9078bc;  /* Change */
+}
+
+.pageContent .pageContentSection .pageContentSectionButton
+{
+    position: relative;
+    top: 0;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 100px;
+    color: #f2f2f2;
+    background-color: transparent;
+    border: solid 2px #f2f2f2;
+    border-radius: 30px;
+    padding: 8px 30px;
+
+    animation: dropDown .5s ease-out forwards 1.5s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .pageContentSection .pageContentSectionButton.Unavailable,
+.pageContent .pageContentSection .pageContentSectionButton.Unavailable:hover
+{
+    background-color: #fb601e60;  /* Change */
+    filter: brightness(1);  /* Change */
+}
+
+.pageContent .pageContentSection .pageContentSectionButton:hover
+{
+    padding: 8px 40px;
+}
+
+.pageContent .pageContentSection .pageContentSectionImage
+{
+    position: relative;
+    width: 500px;
+    top: 0;
+    left: calc(50% - 250px);
+    margin-bottom: 30px;
+
+    animation: dropDown .5s ease-out forwards 1.3s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+/*#region Check box */
+.pageContent .pageContentSection .pageContentSectionCheckBox
+{
+    display: block;
+    position: relative;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    color: #111111a0;
+    margin-bottom: 30px;
+    padding-left: 65px;
+    cursor: pointer;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pageContent .pageContentSection .pageContentSectionCheckBox input
+{
+    position: absolute;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.pageContent .pageContentSection .pageContentSectionCheckBox .checkBox
+{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    left: 30;
+    background-color: #a089cd60;
+}
+
+.pageContent .pageContentSection .pageContentSectionCheckBox:hover input ~ .checkBox
+{
+    filter: brightness(.9);
+}
+
+.pageContent .pageContentSection .pageContentSectionCheckBox input:checked ~ .checkBox
+{
+    background-color: #9078bc;
+}
+
+.pageContent .pageContentSection .pageContentSectionCheckBox .checkBox:after
+{
+    display: none;
+    position: absolute;
+    content: "";
+}
+
+.pageContent .pageContentSection .pageContentSectionCheckBox input:checked ~ .checkBox:after
+{
+    display: block;
+}
+
+.pageContent .pageContentSection .pageContentSectionCheckBox .checkBox:after
+{
+    width: 5px;
+    height: 10px;
+    top: 5px;
+    left: 9px;
+    border: solid #fefefe;
+
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+/*#endregion Check box */
+
+/*#region List */
+.pageContent .pageContentSection .pageContentSectionList
+{
+    position: relative;
+    width: 100%;
+    height: 340px;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin-bottom: 30px;
+
+    animation: dropDown .5s ease-out forwards 1.4s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .pageContentSection .pageContentSectionList::-webkit-scrollbar
+{
+    height: 5px;
+}
+
+.pageContent .pageContentSection .pageContentSectionList .listBox
+{
+    display: inline-block;
+    position: relative;
+    width: 260px;
+    height: 300px;
+    top: 0;
+    left: 30;
+    background-color: #a089cd20;
+    border-radius: 30px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.pageContent .pageContentSection .pageContentSectionList .listBox:hover .bigNumber
+{
+    letter-spacing: 2px;
+}
+
+.pageContent .pageContentSection .pageContentSectionList .listBox.Active
+{
+    background-color: #a089cd40;
+}
+
+.pageContent .pageContentSection .pageContentSectionList .listBox.Active svg#svg01
+{
+    fill: #a089cd50;
+}
+
+.pageContent .pageContentSection .pageContentSectionList .listBox.Active svg#svg02
+{
+    fill: #fb601e25;
+}
+
+.pageContent .pageContentSection .pageContentSectionList .listBox.Last
+{
+    margin-right: 60px;
+}
+
+.pageContent .pageContentSection .pageContentSectionList .listBox .bigNumber
+{
+    position: absolute;
+    width: calc(100% - 30px);
+    top: calc(50% - 50px);
+    left: 15;
+    font-size: 50px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 50px;
+    color: #111111;
+    white-space: normal;
+}
+
+.pageContent .pageContentSection .pageContentSectionList .listBox svg#svg01
+{
+    position: absolute;
+    width: 100%;
+    bottom: 100;
+    left: -100;
+    fill: #a089cd10;
+    transform: scale(2, 10);
+
+    z-index: 0;
+}
+
+.pageContent .pageContentSection .pageContentSectionList .listBox svg#svg02
+{
+    position: absolute;
+    width: 100%;
+    top: 20;
+    left: -100;
+    fill: #fb601e05;
+    transform: scale(2, 5);
+
+    z-index: 0;
+}
+/*#endregion List */
+
+/*#region Input field */
+.pageContent .inputField
+{
+    position: relative;
+    width: calc(100% - 60px);
+    left: 30;
+    padding: 15 0 0;
+    margin-bottom: 30px;
+}
+
+.pageContent .inputField.Unavailable
+{
+    opacity: .2;
+}
+
+.pageContent .inputField.Outside
+{
+    width: calc(100% - 240px);
+    left: 120;
+}
+  
+.pageContent .inputFieldText
+{
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #111111;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #111111;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.pageContent .inputFieldText::placeholder
+{
+    color: transparent;
+}
+
+.pageContent .inputFieldText:placeholder-shown ~ .inputFieldLabel
+{
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+  
+.pageContent .inputFieldLabel
+{
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11111180;
+}
+  
+.pageContent .inputFieldText:focus
+{
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #fb601e, #a089cd);
+    border-bottom: 2px solid #111111;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-image-slice: 1;
+}
+
+.pageContent .inputFieldText:focus ~ .inputFieldLabel
+{
+    position: absolute;
+    top: -8;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #fb601e;
+    font-weight: 700;
+}
+
+.pageContent .inputFieldText:required, .inputFieldText:invalid
+{
+    box-shadow: none;
+}
+
+.pageContent .inputField i
+{
+    float: right;
+    position: absolute;
+    bottom: 15;
+    right: 15;
+    color: #11111180;
+}
+/*#endregion Input field */
+
+/*#region Radio button */
+.pageContent .pageContentSection .pageContentSectionRadioList
+{
+    position: relative;
+    width: calc(100% - 60px);
+    top: 0;
+    left: 30;
+    padding-bottom: 30px;
+
+    animation: dropDown .5s ease-out forwards .9s;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.pageContent .pageContentSection .pageContentSectionRadioList.Unavailable .pageContentSectionRadioButton
+{
+    opacity: .2;
+}
+
+.pageContent .pageContentSection .pageContentSectionRadioList .pageContentSectionRadioButton
+{
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    margin-bottom: 12px;
+    padding-left: 35px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pageContent .pageContentSection .pageContentSectionRadioList .pageContentSectionRadioButton p
+{
+    position: relative;
+    width: calc(100% - 25px);
+    top: 0;
+    left: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    color: #111111a0;
+}
+
+.pageContent .pageContentSection .pageContentSectionRadioList .pageContentSectionRadioButton input
+{
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.pageContent .pageContentSection .pageContentSectionRadioList .pageContentSectionRadioButton .checkmark
+{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    left: 0;
+    background-color: #a089cd60;
+    border-radius: 50%;
+}
+
+.pageContent .pageContentSection .pageContentSectionRadioList .pageContentSectionRadioButton:hover input ~ .checkmark
+{
+    filter: brightness(.9);
+}
+
+.pageContent .pageContentSection .pageContentSectionRadioList .pageContentSectionRadioButton input:checked ~ .checkmark
+{
+    background-color: #9078bc;
+}
+
+.pageContent .pageContentSection .pageContentSectionRadioList .pageContentSectionRadioButton .checkmark:after
+{
+    content: "";
+    display: none;
+    position: absolute;
+}
+
+.pageContent .pageContentSection .pageContentSectionRadioList .pageContentSectionRadioButton input:checked ~ .checkmark:after
+{
+    display: block;
+}
+
+.pageContent .pageContentSection .pageContentSectionRadioList .pageContentSectionRadioButton .checkmark:after
+{
+    width: 8px;
+    height: 8px;
+    top: 9px;
+    left: 9px;
+    background-color: #fefefe;
+    border-radius: 50%;
+}
+/*#endregion Radio button */
+
+/*#region Dropdown menu */
+.droppDownMenu
+{
+    position: relative;
+    width: 300px;
+    top: 0;
+    left: 30;
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+.droppDownMenu select
+{
+    display: none;
+
+    animation: dropDown .3s ease-out forwards;
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+.droppDownMenuSelect:after
+{
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 18px;
+    right: 10px;
+    border: 6px solid transparent;
+    border-color: #111111 transparent transparent transparent;
+}
+
+.droppDownMenuSelect.select-arrow-active:after
+{
+    border-color: transparent transparent #111111 transparent;
+    top: 12px;
+}
+
+.droppDownMenuSelect
+{
+    color: #111111;
+    border: 2px solid transparent;
+    border-color: transparent transparent #111111 transparent;
+    padding: 8px 16px;
+    padding-left: 0px;
+    
+    cursor: pointer;
+    user-select: none;
+}
+
+.droppDownMenuSelectItems div
+{
+    color: #fefefe;
+    border: 2px solid transparent;
+    border-color: transparent transparent #11111120 transparent;
+    padding: 8px 16px;
+    
+    cursor: pointer;
+    user-select: none;
+}
+
+.droppDownMenuSelectItems
+{
+    position: absolute;
+    background-color: #a089cd;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 200px;
+    overflow-y: scroll;
+
+    z-index: 99;
+
+    animation: sideMenuDropdownAnimation .5s ease forwards;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.droppDownMenuSelectHide
+{
+    display: none;
+}
+
+.droppDownMenuSelectItems div:hover, .same-as-selected
+{
+    background-color: #9078bc;
+}
+/*#endregion Dropdown menu */
+
+/*#endregion Page content */
+
+/*#region Bottom bar */
+.bottomBar
+{
+    position: relative;
+    width: 100%;
+    height: 250px;
+    top: 0;
+    left: 0;
+    background-color: #111111;
+}
+
+.bottomBar .directionButton
+{
+    position: absolute;
+    width: 25%;
+    height: 50px;
+    top: 60;
+    background-color: transparent;
+
+    animation: fadeIn .3s ease-out forwards 1.8s;
+    opacity: 0;
+}
+
+.bottomBar .directionButton.H
+{
+    left: 0;
+}
+
+.bottomBar .directionButton.S
+{
+    left: 25%;
+}
+
+.bottomBar .directionButton.A
+{
+    left: 50%;
+}
+
+.bottomBar .directionButton.C
+{
+    left: 75%;
+}
+
+.bottomBar a
+{
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 18px);
+    left: 0;
+    font-size: 30px;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+    color: #f2f2f280;
+}
+
+.bottomBar a:hover,
+.bottomBar a.Active:hover
+{
+    color: #bf8f73;
+}
+
+.bottomBar a.Active
+{
+    font-weight: bold;
+    color: #f2f2f2e0;
+}
+
+.bottomBar .Credits
+{
+    position: absolute;
+    width: 100%;
+    top: auto;
+    bottom: 10;
+    text-align: center;
+    color: #e5e5e540;
+}
+
+.bottomBar .Credits powerd:hover company
+{
+    color: #61da7d;
+    transition: ease .3s;
+}
+
+.bottomBar .Credits managed:hover my
+{
+    color: #028bc2;
+    transition: ease .3s;
+}
+/*#endregion Bottom bar */
+
+/*#region Other */
+.pageHolder
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: transparent;
+}
+
+.mainBackground
+{
+    position: fixed;
+    width: 100%;
+    min-width: 900px;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    z-index: -1;
+}
+
+.mainBackground img
+{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+/*#endregion Other */
+
+img
+{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+a
+{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    transition: ease .3s;
+}
+
+p, div, h1, h2, h3, h4, h5, h6, i, img
+{
+    padding: 0;
+    margin: 0;
+    transition: ease .3s;
+}
+
+/*#region Animations */
+@keyframes popUp
+{
+    0%
+    {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    100%
+    {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes dropDown
+{
+    0%
+    {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100%
+    {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn
+{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOut
+{
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes defaultAnimation
+{
+    0%
+    {
+
+    }
+
+    100%
+    {
+
+    }
+}
+/*#endregion Animations */
+
+/*#region Media 1300-1000 */
+@media screen and (max-width: 1300px)
+{
+
+}
+
+@media screen and (max-width: 1200px)
+{
+
+}
+
+@media screen and (max-width: 1100px)
+{
+    .mainTexts .mainTitle
+    {
+        width: calc(100% - 30px);
+        left: 15;
+        font-size: 80px;
+        line-height: 80px;
+    }
+    
+    .mainTexts .subTitle
+    {
+        width: calc(100% - 30px);
+        left: 15;
+        font-size: 260px;
+        line-height: 260px;
+        text-align: center;
+    }
+    
+    .mainTexts .mainNumber
+    {
+        width: calc(100% - 30px);
+        top: 210;
+        left: 15;
+        font-size: 50px;
+        line-height: 50px;
+    }
+}
+
+@media screen and (max-width: 1000px)
+{
+
+}
+/*#endregion Media 1300-1000 */
+
+/*#region Media 900-800 */
+@media screen and (max-width: 900px)
+{
+    .bottomBar a
+    {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 800px)
+{
+    .topBar a
+    {
+        display: none;
+    }
+
+    .topBar a.Logo,
+    .topBar a.threeLineButton
+    {
+        display: unset;
+    }
+
+    .bottomBar .Credits
+    {
+        width: calc(100% - 30px);
+        bottom: 10;
+        left: 15;
+        font-size: 12px;
+    }
+}
+/*#endregion Media 900-800 */
+
+/*#region Media 700-600 */
+@media screen and (max-width: 700px)
+{
+    .mainTexts .mainTitle
+    {
+        font-size: 50px;
+        line-height: 50px;
+    }
+    
+    .mainTexts .subTitle
+    {
+        top: 10;
+        font-size: 160px;
+        line-height: 160px;
+        -webkit-text-stroke: 1px #f2f2f2a0;
+    }
+    
+    .mainTexts .mainNumber
+    {
+        top: 130;
+        font-size: 28px;
+        line-height: 28px;
+    }
+
+    .mainArrow
+    {
+        left: calc(50% - 15px);
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    .pageContent .pageContentSection .pageContentSectionTitle
+    {
+        width: calc(100% - 30px);
+        left: 15;
+        font-size: 30px;
+        line-height: 30px;
+        padding-top: 80px;
+        margin-bottom: 50px;
+    }
+
+    .pageContent .pageContentSection .pageContentImageBox
+    {
+        width: calc(100% - 60px);
+        left: 30;
+        grid-template-columns: auto auto auto;
+        margin-bottom: 50px;
+    }
+
+    .pageContent .pageContentSection .pageContentImageBox .pageContentImageBoxItem
+    {
+        max-width: calc(100% - 15px);
+        max-height: 260px;
+    }
+
+    .pageContent .pageContentSection .pageContentSectionText
+    {
+        width: calc(100% - 30px);
+        left: 15;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .pageContent .pageContentSection .pageContentSectionButton
+    {
+        font-size: 18px;
+        line-height: 80px;
+        padding: 6px 26px;
+    }
+
+    .pageContent .pageContentSection .pageContentSectionButton:hover
+    {
+        padding: 6px 32px;
+    }
+}
+
+@media screen and (max-width: 600px)
+{
+    .topBar a.Logo div
+    {
+        width: 40px;
+        height: 40px;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+    }
+    
+    .topBar a.threeLineButton
+    {
+        width: 50px;
+        height: 28px;
+    }
+}
+/*#endregion Media 700-600 */
+
+/*#region Media 500-400 */
+@media screen and (max-width: 500px)
+{
+
+
+    /*#region Bottom bar */
+    .bottomBar
+    {
+        height: 240px;
+    }
+
+    .bottomBar .directionButton
+    {
+        top: 30;
+        width: 100%;
+        height: 35px;
+    }
+
+    .bottomBar .directionButton.H,
+    .bottomBar .directionButton.S,
+    .bottomBar .directionButton.A,
+    .bottomBar .directionButton.C
+    {
+        left: 0;
+    }
+
+    .bottomBar .directionButton.S
+    {
+        top: 70;
+    }
+
+    .bottomBar .directionButton.A
+    {
+        top: 110;
+    }
+
+    .bottomBar .directionButton.C
+    {
+        top: 150;
+    }
+    /*#endregion Bottom bar */
+}
+
+@media screen and (max-width: 440px)
+{
+    .mainTexts .mainTitle
+    {
+        font-size: 40px;
+        line-height: 40px;
+    }
+    
+    .mainTexts .subTitle
+    {
+        top: 5;
+        font-size: 130px;
+        line-height: 130px;
+    }
+    
+    .mainTexts .mainNumber
+    {
+        top: 100;
+        font-size: 26px;
+        line-height: 26px;
+    }
+
+    .mainArrow
+    {
+        left: calc(50% - 11px);
+        font-size: 22px;
+        line-height: 22px;
+    }
+}
+
+@media screen and (max-width: 400px)
+{
+
+}
+/*#endregion Media 500-400 */
+
+/*#region Media 350 */
+@media screen and (max-width: 350px)
+{
+    .mainTexts .subTitle
+    {
+        font-size: 120px;
+        line-height: 120px;
+    }
+    
+    .mainTexts .mainNumber
+    {
+        top: 95;
+        font-size: 22px;
+        line-height: 22px;
+    }
+}
+/*#endregion Media 350 */

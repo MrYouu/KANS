@@ -1,0 +1,142 @@
+<!--The HTML code is property to Mr. You (Kristiyan Valchev) and can only be viewed-->
+<!--If you want to use part of the code, please first contact me: krisvalchev@gmail.com-->
+
+<html id = "html">
+    <head>
+        <link href = "https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&display=swap" rel = "stylesheet">
+        <link type = "text/css" rel = "stylesheet" href = "Files/Style.css">
+        <link rel = "icon" href = "Images/Logo.png" type = "image" sizes = "16x16">
+
+        <meta charset = "utf-8">
+        <meta name = "description" content = "This is a website for ...">
+        <meta name = "keywords" content = "..., ...">
+        <meta name = "author" content = "Kristiyan Valchev">
+        <meta name = "viewport" content = "width = device-width, user-scalable = no, initial-scale = 1">
+        
+        <script type = "text/javascript" src = "Files/Functions.js"></script>
+        <script src = "https://kit.fontawesome.com/190623e0b3.js" crossorigin = "anonymous"></script>
+
+        <title>KANS</title>
+    </head>
+
+    <body id = "body">
+        <!-- #region Default -->
+        <div class = "Loader">
+            <div class = "spinner-box">
+                <div class = "configure-border-1">
+                    <div class = "configure-core"></div>
+                </div>
+                <div class = "configure-border-2">
+                    <div class = "configure-core"></div>
+                </div>
+                <h1>Loading...</h1>
+            </div>
+        </div>
+
+        <script>
+            window.addEventListener("load", function ()
+			{
+				const Loader = document.querySelector(".Loader")
+				Loader.className += " hidden";
+            });
+
+            window.scroll(
+            {
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+		</script>
+        <!-- #endregion Default -->
+
+        <div class = "pageHolder" id = "pageHolder">
+            <div class = "sideMenuCloseButton" onclick = "openCloseSideMenu()" id = "sideMenuCloseButton"></div>
+
+            <div class = "mainBackground">
+                <img src = "Images/mainBackground.png" alt = "Mountain main image">
+            </div>
+
+            <div class = "topBar">
+                <a href = "index.html" class = "Logo"><div></div></a>
+                <a href = "index.html" class = "Active">Home</a>
+                <a href = "#">Shoes</a>
+                <a href = "#" class = "Right">Contact Us</a>
+                <a href = "#" class = "Right">About</a>
+
+                <a onclick = "openCloseSideMenu()" class = "threeLineButton Right">
+                    <div id = "threeLineButton 1"></div>
+                    <div id = "threeLineButton 2"></div>
+                    <div id = "threeLineButton 3"></div>
+                </a>
+            </div>
+
+            <div class = "sideMenu" id = "sideMenu">
+                <a href = "#" class = "Active">Home</a>
+                <a href = "#">Shoes</a>
+                <a href = "#">Contact Us</a>
+                <a href = "#">About</a>
+            </div>
+
+            <div class = "mainTexts">
+                <h1 class = "subTitle">NIKE</х1>
+                <h1 class = "mainTitle">KANS</h1>
+                <h2 class = "mainNumber">1718'</h2>
+            </div>
+
+            <i onclick = "scrollToContent()" class = "fas fa-chevron-down mainArrow"></i>
+
+            <div class = "pageContent">
+                <div class = "pageContentSection">
+                    <h1 class = "pageContentSectionTitle">Our Shoes</h1>
+                    <div class = "pageContentImageBox">
+                        <img src = "Images/01.jpg" class = "pageContentImageBoxItem">
+                        <img src = "Images/02.jpg" class = "pageContentImageBoxItem">
+                        <img src = "Images/03.jpg" class = "pageContentImageBoxItem">
+                    </div>
+                    <p class = "pageContentSectionText">
+                        We check every shoe and make sure that it is an original from Nike factory.<br>
+                        <a href = "#" class = "pageContentSectionButton">See more</a>
+                    </p>
+                </div>
+
+                <div class = "pageContentSection">
+                    <h1 class = "pageContentSectionTitle">Our Clothing</h1>
+                    <div class = "pageContentImageBox">
+                        <img src = "Images/04.jpg" class = "pageContentImageBoxItem">
+                        <img src = "Images/05.jpg" class = "pageContentImageBoxItem">
+                        <img src = "Images/06.jpg" class = "pageContentImageBoxItem">
+                    </div>
+                    <p class = "pageContentSectionText">
+                        T-shirts, Trousers, Hoodies and a lot more directly from Nike Factory.<br>
+                        <a href = "#" class = "pageContentSectionButton">Dress me</a>
+                    </p>
+                </div>
+
+                <div class = "pageContentSection">
+                    <h1 class = "pageContentSectionTitle">Custom?</h1>
+                    <div class = "pageContentImageBox">
+                        <img src = "Images/07.jpg" class = "pageContentImageBoxItem">
+                        <img src = "Images/08.jpg" class = "pageContentImageBoxItem">
+                        <img src = "Images/09.jpg" class = "pageContentImageBoxItem">
+                    </div>
+                    <p class = "pageContentSectionText">
+                        Express your personality and be different from the others with custom Nike products.<br>
+                        <a href = "#" class = "pageContentSectionButton">Customise me</a>
+                    </p>
+                </div>
+
+                <div class = "bottomBar">
+                    <div class = "directionButton H"><a href = "index.html" class = "Active">Home</a></div>
+                    <div class = "directionButton S"><a href = "#">Shoes</a></div>
+                    <div class = "directionButton A"><a href = "#">About</a></div>
+                    <div class = "directionButton C"><a href = "#">Contact Us</a></div>
+        
+                    <p class = "Credits">
+                        <powerd>Site powered by <company>Mr. You Development</company>.</powerd>
+                        <managed> Managed by <my>Kristiyan Valchecv</my></managed>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
